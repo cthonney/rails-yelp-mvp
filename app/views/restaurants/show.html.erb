@@ -1,19 +1,51 @@
- <p>
-    <strong>Name:</strong>
-    <%= @restaurant.name %>
-  </p>
 
-  <p>
-    <strong>Address:</strong>
-    <%= @restaurant.address %>
-  </p>
+    <div class="container p-4">
 
-  <p>
-    <strong>Phone number:</strong>
-    <%= @restaurant.phone_number %>
-  </p>
+<div>
+    <h2>Name: <%= @restaurant.name %></h2>
+    <%= link_to(new_restaurant_review_path(@restaurant), class: "btn btn-primary") do  %>
+  Add review
+  <% end %>
 
-  <p>
-    <strong>Category:</strong>
-    <%= @restaurant.category %>
-  </p>
+  <%= link_to(restaurants_path, class: "btn btn-secondary") do  %>
+  Back
+  <% end %>
+</div>
+  <div>
+
+    Address: <%= @restaurant.address %>
+
+    <br>
+
+
+    Phone number: <%= @restaurant.phone_number %>
+
+
+  <br>
+
+    Category: <%= @restaurant.category %>
+
+</div>
+ <div>
+    <% @restaurant.reviews.each do |review| %>
+      <ul>
+
+          <% count = 0 %>
+          <% 5.times do %>
+            <% if review.rating > count %>
+              <i class="fas fa-star text-warning"></i>
+            <% else %>
+              <i class="far fa-star"></i>
+            <% end %>
+            <% count += 1 %>
+          <% end %>
+
+        <p><%= review.content %></p>
+      </ul>
+    <% end %>
+  </div>
+
+  <br>
+
+
+ </div>

@@ -6,10 +6,12 @@
     <%= f.input :address %>
     <%= f.input :phone_number %>
     <%= f.input :category, collection: Restaurant::CATEGORIES %>
-    <%= f.submit class: 'btn btn-success text-blue' %>
+    <%= f.submit class: 'btn btn-success' %>
   <% end %>
 
   <br>
 
-  <%= link_to "Back to restaurants", restaurants_path %>
+  <%= link_to(restaurants_path, class: "btn btn-secondary") do  %>
+  Back
+  <% end %>
 </div>

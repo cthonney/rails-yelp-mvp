@@ -1,14 +1,14 @@
-div class="container fluid">
+<div class="container fluid">
 
   <%= simple_form_for [@restaurant, @review] do |f| %>
     <%= f.input :rating, collection: 0..5 %>
     <%= f.input :content%>
-    <%= f.submit class: 'btn btn-success text-blue' %>
+    <%= f.submit class: 'btn btn-success' %>
   <% end %>
 
   <br>
 
-
-
-  <%= link_to "Back to restaurants", restaurants_path %>
+   <%= link_to(restaurants_path, class: "btn btn-secondary") do  %>
+  Back
+  <% end %>
 </div>

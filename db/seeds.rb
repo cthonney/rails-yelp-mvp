@@ -11,9 +11,19 @@ require 'faker'
 5.times do |number|
 
   Restaurant.create!(
-    name: Faker::Creature::Animal.name,
+    name: Faker::Restaurant.name   ,
     address: Faker::Address.full_address,
     phone_number: Faker::PhoneNumber.cell_phone,
     category: [ "chinese", "italian", "japanese", "french", "belgian" ].sample
+  )
+end
+
+60.times do |number|
+
+  Review.create!(
+    restaurant_id: Faker::Number.between(from: 1, to: 15)   ,
+    content: Faker::Restaurant.review,
+    rating: Faker::Number.between(from: 0, to: 5)
+
   )
 end
